@@ -93,7 +93,8 @@ $(document).ready(function() {
 
             $(ID_OVER_RANK_MSG).text('ランク:' + (maxRank + 1) + '以降は経験値:' + addFigure(lastExpDiff) + '毎に加算した目安です。');
 
-            setTweetButton('【目標ランク】2000\n【現在のランク】1500\n');
+            // ツイートボタン生成
+            setTweetButton();
         });
 });
 
@@ -109,6 +110,8 @@ function changeTargetRank() {
     // 算出
     $(ID_TARGET_EXP).text(addFigure(calcRankToExp(ID_TARGET_RANK)));
     calcAll();
+    // ツイートボタン生成
+    setTweetButton();
 }
 
 /**
@@ -120,6 +123,8 @@ function changeNowRank() {
     calcAll();
     setCookieVal(NOW_RANK);
     setCookieVal(TOTAL_EXP, true);
+    // ツイートボタン生成
+    setTweetButton();
 }
 
 /**
@@ -135,6 +140,8 @@ function changeTotalExp() {
     calcAll();
     setCookieVal(NOW_RANK);
     setCookieVal(TOTAL_EXP, true);
+    // ツイートボタン生成
+    setTweetButton();
 }
 
 /**
@@ -547,13 +554,24 @@ function setInitVal(id, isAddFigure = false, undefinedVal = '') {
 /**
  * ツイートボタン生成
  */
-function setTweetButton(text){
-    $('#tweet-area').empty(); //既存のボタン消す
-    // htmlでスクリプトを読んでるからtwttがエラーなく呼べる
-    // オプションは公式よんで。
+function setTweetButton(){
+    $('#tweet_area').empty(); //既存のボタン消す
+
+    if (!$(ID_TARGET_RANK).val() || !$(ID_NOW_RANK).val() || !$(ID_NEED_EXP).text()) {
+        return;
+    }
+
+    var text = '';
+    text += '【目標ランク】' + $(ID_TARGET_RANK).val() + '\n';
+    text += '【現在のランク】' + $(ID_NOW_RANK).val() + '\n';
+    text += '【目標日】' + $(ID_TARGET_YEAR).val() + '年' + $(ID_TARGET_MONTH).val() + '月' + $(ID_TARGET_DAY).val() + '日' + '\n';
+    text += '目標までに必要な経験値は ' + $(ID_NEED_EXP).text() + '\n';
+    text += '毎日 ' + $(ID_DAYS_EXP).text() + ' 獲得すれば達成可能！';
+
+    // ボタン生成
     twttr.widgets.createShareButton(
       "",
-      document.getElementById("tweet-area"),
+      document.getElementById("tweet_area"),
       {
         text: text, // 狙ったテキスト
         url: 'https://ishikoro1994.github.io/monsuto_rank_tool_metal/',
