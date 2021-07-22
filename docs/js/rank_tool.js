@@ -566,7 +566,7 @@ function setTweetButton(){
     text += '【現在のランク】' + $(ID_NOW_RANK).val() + '\n';
     text += '【目標日】' + $(ID_TARGET_YEAR).val() + '年' + $(ID_TARGET_MONTH).val() + '月' + $(ID_TARGET_DAY).val() + '日' + '\n';
     text += '目標までに必要な経験値は ' + $(ID_NEED_EXP).text() + '\n';
-    text += '毎日 ' + $(ID_DAYS_EXP).text() + ' 獲得すれば達成可能！';
+    text += '毎日 ' + $(ID_DAYS_EXP).text() + ' 獲得すれば達成可能！' + '\n';
 
     // ボタン生成
     twttr.widgets.createShareButton(
