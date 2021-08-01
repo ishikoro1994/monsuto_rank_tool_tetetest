@@ -554,16 +554,26 @@ function setInitVal(id, isAddFigure = false, undefinedVal = '') {
 /**
  * ツイートボタン生成
  */
-function setTweetButton(){
+ function setTweetButton(){
     $('#tweet_area').empty(); //既存のボタン消す
+    var targetRank = $(ID_TARGET_RANK).val();
+    var nowRank = $(ID_NOW_RANK).val();
 
-    if (!$(ID_TARGET_RANK).val() || !$(ID_NOW_RANK).val() || !$(ID_NEED_EXP).text()) {
+    if (!targetRank || !nowRank || !$(ID_NEED_EXP).text()) {
         return;
     }
 
     var text = '';
-    text += '【目標ランク】' + $(ID_TARGET_RANK).val() + '\n';
-    text += '【現在のランク】' + $(ID_NOW_RANK).val() + '\n';
+    text += '【目標ランク】' + targetRank;
+    if (targetRank > maxRank) {
+        text += '(推定)';
+    }
+    text += '\n';
+    text += '【現在のランク】' + nowRank;
+    if (nowRank > maxRank) {
+        text += '(推定)';
+    }
+    text += '\n';
     text += '【目標日】' + $(ID_TARGET_YEAR).val() + '年' + $(ID_TARGET_MONTH).val() + '月' + $(ID_TARGET_DAY).val() + '日' + '\n';
     text += '目標までに必要な経験値は ' + $(ID_NEED_EXP).text() + '\n';
     text += '毎日 ' + $(ID_DAYS_EXP).text() + ' 獲得すれば達成可能！';
@@ -575,7 +585,7 @@ function setTweetButton(){
       {
         text: text, // 狙ったテキスト
         url: 'https://ishikoro1994.github.io/monsuto_rank_tool_metal/',
-        hashtags: 'モンスト,目標ランク,はぐれメタル周回',
+        hashtags: 'モンスト,モンスト目標宣言,はぐれメタル周回',
         lang: 'ja'
       }
     );

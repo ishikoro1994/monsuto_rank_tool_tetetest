@@ -1,0 +1,126 @@
+@charset "utf-8";
+
+#over_rank_msg {
+  color: red;
+}
+
+#main_info [id$="_label"] {
+  background-color: lightskyblue;
+}
+
+/*数値入力項目*/
+.input_column {
+  background-color: bisque;
+  text-align: right;
+  border: inherit;
+}
+
+/*表示項目*/
+.disp_column {
+  text-align: right;
+}
+
+/*使用方法*/
+#how_to {
+  margin-top: initial;
+  color: red;
+}
+
+/*周回数テーブル ヘッダ*/
+#lap_count_table thead {
+  background-color: lightskyblue;
+}
+
+/*ウィンドウ幅が767px以上の場合に適用*/
+@media screen and (min-width: 1025px) {
+  #over_rank_msg {
+    font-size: 14px;
+  }
+
+  /*ヘッダタイトル*/
+  #head_title {
+    font-size: 25px;
+  }
+
+  /**/
+  #main_info td {
+    font-size: 15px;
+  }
+
+  #main_info input {
+    font-size: 16px;
+  }
+
+  /*所持数テキストボックス*/
+  #syozisu {
+    width: 60px;
+  }
+
+  /*交換済個数*/
+  .changed_count {
+    width: 40px;
+  }
+
+  #contact {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  /*ウィンドウ幅が最大767pxまでの場合に適用 タブレット*/
+  #over_rank_msg {
+    font-size: 14px;
+  }
+
+  /*ヘッダタイトル*/
+  #head_title {
+    font-size: 25px;
+  }
+
+  /**/
+  #main_info td {
+    font-size: 15px;
+  }
+
+  #main_info input {
+    font-size: 16px;
+  }
+
+  /*所持数テキストボックス*/
+  #syozisu {
+    width: 60px;
+  }
+
+  #contact {
+    font-size: 14px;
+  }
+}
+
+/*ウィンドウ幅が最大479pxまでの場合に適用 スマホ*/
+@media screen and (max-width: 599px) {
+  /*ヘッダタイトル*/
+  #head_title {
+    font-size: 18px;
+  }
+
+  #over_rank_msg {
+    font-size: 12px;
+  }
+
+  /**/
+  #main_info td {
+    font-size: 12px;
+  }
+
+  #main_info input {
+    font-size: 12px;
+  }
+
+  #lap_count_table {
+    font-size: 13px;
+  }
+
+  #contact {
+    font-size: 12px;
+  }
+}

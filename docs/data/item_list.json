@@ -1,0 +1,107 @@
+[
+  {
+    "item_name": "称号「秘海の冒険家」",
+    "point": 1000,
+    "limit": 1
+  },
+  {
+    "item_name": "称号「トビウオと海をとびたい」",
+    "point": 1000,
+    "limit": 1
+  },
+  {
+    "item_name": "称号「〇〇〇〇の航海士」",
+    "point": 2000,
+    "limit": 1
+  },
+  {
+    "item_name": "称号「GO!〇〇〇〇」",
+    "point": 2000,
+    "limit": 1
+  },
+  {
+    "item_name": "「秘海の冒険船」の勲章",
+    "point": 2000,
+    "limit": 1
+  },
+  {
+    "item_name": "「秘海の冒険船」のグッジョブ",
+    "point": 2000,
+    "limit": 1
+  },
+  {
+    "item_name": "船拡張（Lv2）",
+    "point": 4000,
+    "limit": 1
+  },
+  {
+    "item_name": "船拡張（Lv3）",
+    "point": 4000,
+    "limit": 1
+  },
+  {
+    "item_name": "獣神玉×1",
+    "point": 500,
+    "limit": 3
+  },
+  {
+    "item_name": "降神玉×1",
+    "point": 500,
+    "limit": 3
+  },
+  {
+    "item_name": "獣竜玉×1",
+    "point": 800,
+    "limit": 3
+  },
+  {
+    "item_name": "スタミナミン×1",
+    "point": 100,
+    "limit": 10
+  },
+  {
+    "item_name": "コンテニュミン×1",
+    "point": 100,
+    "limit": 10
+  },
+  {
+    "item_name": "わくわくミン×1",
+    "point": 800,
+    "limit": 3
+  },
+  {
+    "item_name": "トラベルベル×1",
+    "point": 500,
+    "limit": 1
+  },
+  {
+    "item_name": "ミラクルミン×1",
+    "point": 1200,
+    "limit": 1
+  },
+  {
+    "item_name": "わくわくステッキ×1",
+    "point": 4000,
+    "limit": 1
+  },
+  {
+    "item_name": "英雄の書×1",
+    "point": 4000,
+    "limit": 1
+  },
+  {
+    "item_name": "レベルの書×1",
+    "point": 3200,
+    "limit": 1
+  },
+  {
+    "item_name": "戦型の書×1",
+    "point": 4000,
+    "limit": 1
+  },
+  {
+    "item_name": "モンスターBOX収納枠（10体分）",
+    "point": 100,
+    "limit": 1
+  }
+]

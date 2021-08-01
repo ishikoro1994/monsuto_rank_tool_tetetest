@@ -1,90 +1,60 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <link rel="stylesheet" href="./style/rank_tool.css">
+        <link rel="stylesheet" href="./style/hikai.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-        <script src="//platform.twitter.com/widgets.js" charset="utf-8""></script>
-        <script src="./js/rank_tool.js"></script>
-        <title>モンスト　ランク計算ツール(ダイの大冒険コラボ用)</title>
+        <script src="./js/hikai.js"></script>
+        <title>モンスト　秘海石ツール</title>
     </head>
     <body>
-        <h1 id="head_title">モンスト　ランク計算ツール<br>(ダイの大冒険コラボ用)</h1>
-        <label id="over_rank_msg"></label>
+        <h1 id="head_title">モンスト　秘海石ツール</h1>
         <table border="1" id="main_info">
             <tr>
-                <td id="target_rank_label">目標ランク</td>
-                <td>
-                    <input type="tel" id="target_rank" maxlength="4" tabindex="1" class="input_column" onchange="changeTargetRank();">
-                </td>
-                <td id="now_rank_label">現在のランク</td>
-                <td>
-                    <input type="tel" id="now_rank" maxlength="4" tabindex="1" class="input_column" onchange="changeNowRank();">
-                </td>
-            </tr>
-            <tr>
-                <td id="target_exp_label">目標経験値</td>
-                <td id="target_exp" class="disp_column"></td>
-                <td id="target_year_label">目標年</td>
-                <td>
-                    <select id="target_year" class="select_column target_ymd" tabindex="3" onchange="changeTargetYear();">
-                </td>
-            </tr>
-            <tr>
-                <td id="total_exp_label">累計経験値</td>
-                <td>
-                    <input type="tel" id="total_exp" maxlength="11" tabindex="2" class="input_column" onchange="changeTotalExp();" onfocus="focusTotalExp();" onblur="blurTotalExp();">
-                </td>
-                <td id="target_month_label">目標月</td>
-                <td>
-                    <select id="target_month" class="select_column target_ymd" tabindex="4" onchange="changeTargetMonth();">
-                </td>
-            </tr>
-            <tr>
-                <td id="need_exp_label">必要経験値</td>
-                <td id="need_exp" class="disp_column"></td>
-                <td id="target_day_label">目標日</td>
-                <td>
-                    <select id="target_day" class="select_column target_ymd" tabindex="5" onchange="changeTargetDay();">
-                </td>
-            </tr>
-            <tr>
-                <td id="days_exp_label">1日目標経験値</td>
-                <td id="days_exp" class="disp_column"></td>
                 <td id="days_left_label">残り日数</td>
                 <td id="days_left" class="disp_column"></td>
+                <td id="syozisu_label">現在の所持数</td>
+                <td>
+                    <input id="syozisu" type="tel" id="" maxlength="11" tabindex="2" class="input_column" onchange="changeSyozisu();">
+                </td>
+            </tr>
+            <tr>
+                <td id="hituyosu_label">必要数合計</td>
+                <td id="hituyosu" class="disp_column"></td>
+                <td id="hituyosu_days_label">必要数／日</td>
+                <td id="hituyosu_days" class="disp_column"></td>
             </tr>
         </table>
-        <p id="how_to">
-            <label>※目標ランク・目標年月日を設定してください。<br></label>
-            <label>　現在のランクまたは累計経験値を入力してください。(自動計算)<br></label>
-            <label>　(累計経験値は「その他」→「ストライカー」から確認)</label>
-        </p>
-        <div style="font-weight:bold;">はぐれメタル必要討伐数</div>
-        <div>
-            <label id="base_exp_label">各経験値は1.6(学び特L)を掛けた数値です。</label>
-        </div>
+        <p style="font-weight:bold; margin-bottom:unset">周回数</p>
         <table border="1" id="lap_count_table">
             <thead style="text-align: center;">
                 <tr>
-                    <th>難易度</th>
-                    <th>学びスポ</th>
-                    <th>1体経験値</th>
-                    <th>1日分</th>
-                    <th>目標まで</th>
+                    <th>1周獲得秘海石</th>
+                    <th>周回数</th>
+                    <th>周回数／日</th>
                 </tr>
             </thead>
             <tbody id="lap_count_tbody"></tbody>
         </table>
-        <p id="lap_tips">
-            <label>「1日分」・「目標まで」は討伐数を表しています。</label>
+        <p id="how_to">
+            <!-- <label>※目標ランク・目標年月日を設定してください。<br></label>
+            <label>　現在のランクまたは累計経験値を入力してください。(自動計算)<br></label>
+            <label>　(累計経験値は「その他」→「ストライカー」から確認)</label> -->
         </p>
-        <p>
-            <div id="share">
-                <label id="tweet_label">目標と現在の状況を</label>
-                <div id="tweet_area"></div>
-            </div>
-        </p>
+        <div style="font-weight:bold;">引き換え一覧</div>
+        <table border="1" id="lap_count_table">
+            <thead style="text-align: center;">
+                <tr>
+                    <th>引き換え対象</th>
+                    <th>交換1回に必要な<br>「秘海石」</th>
+                    <th>上限</th>
+                    <th>上限までに必要な<br>「秘海石」</th>
+                    <th>交換済個数</th>
+                    <th>取得済</th>
+                </tr>
+            </thead>
+            <tbody id="item_list_tbody"></tbody>
+        </table>
         <div id="contact">
             <label style="color: red;">質問・相談は作成者twitterまでご連絡ください。</label><br>
             <a href="https://twitter.com/intent/tweet?screen_name=ishikoro1994&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-show-count="false">Tweet to @ishikoro1994</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
